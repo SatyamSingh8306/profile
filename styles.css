@@ -144,6 +144,14 @@ h1, h2, h3 {
     justify-content: center;
 }
 
+/* .skill-item {
+    background-color: #444;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    width: 150px;
+    text-align: center;
+} */
 .skill-item {
     background-color: #444;
     margin: 10px;
@@ -151,8 +159,53 @@ h1, h2, h3 {
     border-radius: 5px;
     width: 150px;
     text-align: center;
+    border: 2px solid aqua; /* Add aqua color border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow for depth */
 }
 
+.skill-item i {
+    color: #fff; /* Default icon color */
+    filter: drop-shadow(2px 2px 4px rgba(0, 255, 255, 0.7)); /* Add a 3D effect with a drop shadow */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transition for hover effects */
+}
+.fab, .fas {
+    color: inherit; /* Inherit color from parent */
+}
+.fa-html5 {
+    color: #e34c26; /* HTML5 orange */
+}
+
+.fa-css3-alt {
+    color: #264de4; /* CSS3 blue */
+}
+
+.fa-java {
+    color: #007396; /* Java blue */
+}
+
+.fa-python {
+    color: #3776ab; /* Python blue */
+}
+
+.fa-brain {
+    color: #ff6f61; /* Deep Learning pink */
+}
+
+.fa-robot {
+    color: #4CAF50; /* Machine Learning green */
+}
+
+.fa-database {
+    color: #f0db4f; /* DBMS yellow */
+}
+
+.fa-camera {
+    color: #ff4081; /* Object Detection pink */
+}
+
+.fa-sync-alt {
+    color: #00bcd4; /* Bidirectional RNN/LSTM/GRU cyan */
+}
 /* Projects Section */
 .project-list {
     display: flex;
