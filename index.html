@@ -1,327 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Satyam Singh">
-    <title>Satyam Singh - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-      .merged-container {
-      display: flex;
-      gap: 20px; /* Space between left and right sections */
-      width: 100%;
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #413535;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Left Section - About */
-    #about {
-      flex: 1; /* Smaller width */
-      background-color: #f4f4f4;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    #about .profile-photo img {
-      width: 150px; /* Fixed width for the photo */
-      height: 150px; /* Fixed height for the photo */
-      border-radius: 50%; /* Make the photo circular */
-      overflow: hidden; /* Ensure the image stays within the circle */
-      margin-bottom: 20px; /* Space below the photo */
-      border: 4px solid #fff; /* Add a white border around the photo */
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-    }
-
-    #about .bio {
-      text-align: center;
-    }
-
-    #about .bio h1 {
-      margin: 15px 0 10px;
-      font-size: 24px;
-    }
-
-    #about .bio p {
-      font-size: 14px;
-      color: #555;
-    }
-
-    #about .bio .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-
-    #about .bio .btn:hover {
-      background-color: #0056b3;
-    }
-
-    /* Right Section - Summary */
-    #summary {
-      flex: 2; /* Larger width */
-      background-color: #e0e0e0;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    #summary h2 {
-      margin-top: 0;
-      font-size: 28px;
-      color: #333;
-    }
-
-    #summary .summary-content p {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #555;
-    }
-
-    #summary .summary-content strong {
-      color: #333;
-    }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Satyam Singh">
+  <title>Satyam Singh - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
-
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Canvas for Neural Network Background -->
+  <canvas id="canvas"></canvas>
 
-    <!-- <section id="about" class="section">
-        <div class="container">
-            <div class="profile-photo">
-                <img src="photoprofile.jpg" alt="Satyam Singh">
-            </div>
-            <div class="bio">
-                <h1>Satyam Singh</h1>
-                <p>NIT Nagaland [CSE] | Python Programmer | Machine Learning | Deep Learning | Flask Framework Developer | Object Detection Enthusiast</p>
-                <a href="myResume2.pdf" class="btn">Download Resume</a>
-            </div>
-        </div>
-    </section>
+  <!-- Loading Animation -->
+  <div id="loading">
+    <div class="spinner"></div>
+  </div>
 
-    <section id="summary" class="section">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="summary-content">
-                <p>👋 Hi, I'm <strong>Satyam Singh</strong>, a B.Tech student in Computer Science and Engineering at NIT Nagaland, driven by a passion for solving real-world problems through technology and innovation.</p>
-                <p>💻 With a strong foundation in Python, I specialize in Machine Learning, Deep Learning, and Natural Language Processing (NLP). My expertise includes building scalable applications, implementing advanced algorithms, and developing solutions using frameworks like TensorFlow, Scikit-learn, and Flask.</p>
-                <p>🚀 My journey in AI extends to mastering Deep Learning architectures such as ANN, CNN, RNN, LSTM, and GRU. I’m particularly fascinated by projects involving predictive modeling, recommendation systems, and real-time data analysis.</p>
-                <p>🌱 I thrive on learning and evolving, staying updated with the latest advancements in technology to contribute to impactful projects. My academic excellence (CGPA: 9.82) reflects my commitment to continuous improvement and technical rigor.</p>
-                <p>🤝 Let’s connect!</p>
-            </div>
-        </div>
-    </section> -->
-    <div class="merged-container">
-        <!-- Left Section - About -->
-        <section id="about" class="section">
-          <div class="profile-photo">
-            <img src="photoprofile.jpg" alt="Satyam Singh">
-          </div>
-          <div class="bio">
-            <h1>Satyam Singh</h1>
-            <p>NIT Nagaland [CSE] | Python Programmer | Machine Learning | Deep Learning | Flask Framework Developer | Object Detection Enthusiast</p>
-            <a href="BestResume.pdf" class="btn">Download Resume</a>
-          </div>
-        </section>
-    
-        <!-- Right Section - Summary -->
-        <section id="summary" class="section">
-          <h2>About Me</h2>
-          <div class="summary-content">
-            <p>👋 Hi, I'm <strong>Satyam Singh</strong>, a B.Tech student in Computer Science and Engineering at NIT Nagaland, driven by a passion for solving real-world problems through technology and innovation.</p>
-            <p>💻 With a strong foundation in Python, I specialize in Machine Learning, Deep Learning, and Natural Language Processing (NLP). My expertise includes building scalable applications, implementing advanced algorithms, and developing solutions using frameworks like TensorFlow, Scikit-learn, and Flask.</p>
-            <p>🚀 My journey in AI extends to mastering Deep Learning architectures such as ANN, CNN, RNN, LSTM, and GRU. I’m particularly fascinated by projects involving predictive modeling, recommendation systems, and real-time data analysis.</p>
-            <p>🌱 I thrive on learning and evolving, staying updated with the latest advancements in technology to contribute to impactful projects. My academic excellence (CGPA: 9.82) reflects my commitment to continuous improvement and technical rigor.</p>
-            <p>🤝 Let’s connect!</p>
-          </div>
-        </section>
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About and Summary Section -->
+  <div class="merged-container">
+    <!-- Left Section - About -->
+    <section id="about" class="section">
+      <div class="profile-photo">
+        <img src="photoprofile.jpg" alt="Satyam Singh">
       </div>
-    
-    
-    <!-- <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="satyam8306" data-version="v1">
-        <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/satyam8306?trk=profile-badge" target="_blank">Satyam Singh</a>
-    </div> -->
-
-    <section id="skills" class="section">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skill-list">
-                <div class="skill-item">
-                    <i class="fab fa-html5"></i> HTML
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-css3-alt"></i> CSS
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-java"></i> Java
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-python"></i> Python
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-brain"></i> Deep Learning
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-robot"></i> Machine Learning
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-python"></i> Flask
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database"></i> DBMS
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-camera"></i> Object Detection
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-brain"></i> ANN (Artificial Neural Networks)
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-brain"></i> CNN (Convolutional Neural Networks)
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-brain"></i> RNN (Recurrent Neural Networks)
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-brain"></i> LSTM (Long Short-Term Memory)
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-brain"></i> GRU (Gated Recurrent Unit)
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-sync-alt"></i> Bidirectional LSTM/GRU
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-network-wired"></i> RAG (Retrieval-Augmented Generation)
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-robot"></i> LLM (Large Language Models)
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-link"></i> Langchain
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-cogs"></i> AI Agent
-                </div>
-            </div>
-        </div>
-    </section>
-    
-
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project-list">
-                <div class="project-card">
-                    <h3>Medical Das - RAG Application Chatbot</h3>
-                    <p>AI-powered system for retrieving and generating relevant medical insights from uploaded PDFs, enhancing information accessibility for healthcare professionals.</p>
-                    <a href="https://github.com/SatyamSingh8306/MedicalDas" target="_blank" class="btn">View Project</a>
-                </div>
-                
-                <!-- Medical Das2.0 - AI-Powered Healthcare Assistant -->
-                <div class="project-card">
-                    <h3>Medical Das2.0 - AI-Powered Healthcare Assistant</h3>
-                    <p>Multimodal AI healthcare assistant enabling voice-based consultations and medical data analysis with integrated image processing capabilities.</p>
-                    <a href="https://github.com/SatyamSingh8306/MedicalDas2.0" target="_blank" class="btn">View Project</a>
-                </div>
-                
-                <!-- LawyerDas - RAG Application -->
-                <div class="project-card">
-                    <h3>LawyerDas - RAG Application</h3>
-                    <p>Dynamic 3D UI chatbot leveraging DeepSeek R1, FAISS, and Groq to provide accurate legal information from uploaded documents.</p>
-                    <a href="https://github.com/SatyamSingh8306/LawyerDas" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Credit Scoring Model</h3>
-                    <p>Machine learning model for predicting loan repayment likelihood, achieving 80% accuracy.</p>
-                    <a href="https://github.com/SatyamSingh8306/Credit-Scoring-Model" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Movie Recommender System</h3>
-                    <p>Personalized movie recommendations built with NLP and Flask backend for efficient handling.</p>
-                    <a href="https://github.com/SatyamSingh8306/ML-Projects" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>SMS Spam Classifier</h3>
-                    <p>Spam classifier using NLP and Naive Bayes for high accuracy in SMS filtering.</p>
-                    <a href="https://github.com/SatyamSingh8306/Spam_sms_classifier" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Car Counter</h3>
-                    <p>Deep learning-based application for counting cars in real-time from video feeds.</p>
-                    <a href="https://github.com/SatyamSingh8306/Car-Counter-Object-Detection-" target="_blank" class="btn">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Portfolio Website</h3>
-                    <p>This portfolio! Designed and built to showcase my skills and work.</p>
-                    <a href="https://github.com/satyam/portfolio" target="_blank" class="btn">View Project</a>
-                </div>
-            </div>
-        </div>
+      <div class="bio">
+        <h1>Satyam Singh</h1>
+        <p>NIT Nagaland [CSE] | Python Programmer | Machine Learning | Deep Learning | Flask Framework Developer |
+          Object Detection Enthusiast</p>
+        <a href="BestResume.pdf" class="btn">Download Resume</a>
+      </div>
     </section>
 
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Connect with Me</h2>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/satyam8306" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://github.com/satyam8306" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="aicinema69@gmail.com" target="_blank" class="social-link">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
-                <a href="https://www.kaggle.com/satyamsingh8306" target="_blank" class="social-link">
-                    <i class="fab fa-kaggle"></i> Kaggle
-                </a>
-                <a href="https://huggingface.co/aicinema69" target="_blank" class="social-link">
-                    <i class="fas fa-user"></i> Hugging Face
-                </a>
-            </div>
-        </div>
+    <!-- Right Section - Summary -->
+    <section id="summary" class="section">
+      <h2>About Me</h2>
+      <div class="summary-content">
+        <p>👋 Hi, I'm <strong>Satyam Singh</strong>, a B.Tech student in Computer Science and Engineering at NIT
+          Nagaland, driven by a passion for solving real-world problems through technology and innovation.</p>
+        <p>💻 With a strong foundation in Python, I specialize in Machine Learning, Deep Learning, and Natural Language
+          Processing (NLP). My expertise includes building scalable applications, implementing advanced algorithms, and
+          developing solutions using frameworks like TensorFlow, Scikit-learn, and Flask.</p>
+        <p>🚀 My journey in AI extends to mastering Deep Learning architectures such as ANN, CNN, RNN, LSTM, and GRU.
+          I'm particularly fascinated by projects involving predictive modeling, recommendation systems, and real-time
+          data analysis.</p>
+        <p>🌱 I thrive on learning and evolving, staying updated with the latest advancements in technology to
+          contribute to impactful projects. My academic excellence (CGPA: 9.82) reflects my commitment to continuous
+          improvement and technical rigor.</p>
+        <p>🤝 Let's connect!</p>
+      </div>
     </section>
-    
+  </div>
 
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact</h2>
-            <form id="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skill-list">
+        <div class="skill-item">
+          <i class="fab fa-html5"></i> HTML
         </div>
-    </section>
+        <div class="skill-item">
+          <i class="fab fa-css3-alt"></i> CSS
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-java"></i> Java
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-python"></i> Python
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-brain"></i> Deep Learning
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-robot"></i> Machine Learning
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-python"></i> Flask
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-database"></i> DBMS
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-camera"></i> Object Detection
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-brain"></i> ANN (Artificial Neural Networks)
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-brain"></i> CNN (Convolutional Neural Networks)
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-brain"></i> RNN (Recurrent Neural Networks)
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-brain"></i> LSTM (Long Short-Term Memory)
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-brain"></i> GRU (Gated Recurrent Unit)
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-sync-alt"></i> Bidirectional RNN/LSTM
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-network-wired"></i> RAG (Retrieval-Augmented Generation)
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-robot"></i> LLM (Large Language Models)
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-link"></i> Langchain
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-cogs"></i> AI Agent
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 Satyam Singh | All Rights Reserved</p>
-    </footer>
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="project-list">
+        <div class="project-card">
+          <h3>Medical Das - RAG Application Chatbot</h3>
+          <p>AI-powered system for retrieving and generating relevant medical insights from uploaded PDFs, enhancing
+            information accessibility for healthcare professionals.</p>
+          <a href="https://github.com/SatyamSingh8306/MedicalDas" target="_blank" class="btn">View Project</a>
+        </div>
 
-    <script src="scripts.js"></script>
+        <!-- Medical Das2.0 - AI-Powered Healthcare Assistant -->
+        <div class="project-card">
+          <h3>Medical Das2.0 - AI-Powered Healthcare Assistant</h3>
+          <p>Multimodal AI healthcare assistant enabling voice-based consultations and medical data analysis with
+            integrated image processing capabilities.</p>
+          <a href="https://github.com/SatyamSingh8306/MedicalDas2.0" target="_blank" class="btn">View Project</a>
+        </div>
+
+        <!-- LawyerDas - RAG Application -->
+        <div class="project-card">
+          <h3>LawyerDas - RAG Application</h3>
+          <p>Dynamic 3D UI chatbot leveraging DeepSeek R1, FAISS, and Groq to provide accurate legal information from
+            uploaded documents.</p>
+          <a href="https://github.com/SatyamSingh8306/LawyerDas" target="_blank" class="btn">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>Credit Scoring Model</h3>
+          <p>Machine learning model for predicting loan repayment likelihood, achieving 80% accuracy.</p>
+          <a href="https://github.com/SatyamSingh8306/Credit-Scoring-Model" target="_blank" class="btn">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>Movie Recommender System</h3>
+          <p>Personalized movie recommendations built with NLP and Flask backend for efficient handling.</p>
+          <a href="https://github.com/SatyamSingh8306/ML-Projects" target="_blank" class="btn">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>SMS Spam Classifier</h3>
+          <p>Spam classifier using NLP and Naive Bayes for high accuracy in SMS filtering.</p>
+          <a href="https://github.com/SatyamSingh8306/Spam_sms_classifier" target="_blank" class="btn">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>Car Counter</h3>
+          <p>Deep learning-based application for counting cars in real-time from video feeds.</p>
+          <a href="https://github.com/SatyamSingh8306/Car-Counter-Object-Detection-" target="_blank" class="btn">View
+            Project</a>
+        </div>
+        <div class="project-card">
+          <h3>Portfolio Website</h3>
+          <p>This portfolio! Designed and built to showcase my skills and work.</p>
+          <a href="https://github.com/satyam/portfolio" target="_blank" class="btn">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Connect with Me</h2>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/satyam8306" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/satyam8306" target="_blank" class="social-link">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="aicinema69@gmail.com" target="_blank" class="social-link">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+        <a href="https://www.kaggle.com/satyamsingh8306" target="_blank" class="social-link">
+          <i class="fab fa-kaggle"></i> Kaggle
+        </a>
+        <a href="https://huggingface.co/aicinema69" target="_blank" class="social-link">
+          <i class="fas fa-user"></i> Hugging Face
+        </a>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <form id="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Satyam Singh | All Rights Reserved</p>
+  </footer>
+
+  <!-- Scroll-to-Top Button -->
+  <button id="scroll-to-top" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Neural Network Controls -->
+  <div id="ui-container">
+    <button id="toggle-animation">Pause Animation</button>
+    <select id="motion-intensity">
+      <option value="high">High Motion</option>
+      <option value="medium" selected>Medium Motion</option>
+      <option value="low">Low Motion</option>
+      <option value="minimal">Minimal Motion</option>
+    </select>
+    <select id="color-scheme">
+      <option value="blue" selected>Electric Blue</option>
+      <option value="purple">Cosmic Purple</option>
+      <option value="teal">Digital Teal</option>
+      <option value="multi">Multi-Color</option>
+    </select>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
+
 </html>
