@@ -1,45 +1,59 @@
 // Loading Animation
 document.addEventListener('DOMContentLoaded', function() {
-    // Hide loading animation after page is loaded
-    setTimeout(function() {
-        document.getElementById('loading').style.display = 'none';
-    }, 1500);
+    // Check if elements exist before trying to use them
+    const loadingElement = document.getElementById('loading');
+    if (loadingElement) {
+        // Hide loading animation after page is loaded
+        setTimeout(function() {
+            loadingElement.style.display = 'none';
+        }, 1500);
+    }
     
     // Scroll to Top Button
     const scrollToTopButton = document.getElementById('scroll-to-top');
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            scrollToTopButton.style.display = 'block';
-        } else {
-            scrollToTopButton.style.display = 'none';
-        }
-    });
-    
-    scrollToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (scrollToTopButton) {
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.style.display = 'block';
+            } else {
+                scrollToTopButton.style.display = 'none';
+            }
         });
-    });
-    
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
+        
+        scrollToTopButton.addEventListener('click', function() {
             window.scrollTo({
-                top: targetElement.offsetTop - 70,
+                top: 0,
                 behavior: 'smooth'
             });
         });
-    });
+    }
+    
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('nav a');
+    if (navLinks.length > 0) {
+        navLinks.forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
     
     // Neural Network Background
-    (function() {
+    const initCanvas = function() {
         const canvas = document.getElementById('canvas');
+        if (!canvas) return; // Exit if canvas doesn't exist
+        
         const ctx = canvas.getContext('2d');
+        if (!ctx) return; // Exit if context can't be obtained
         
         // DOM elements for UI controls
         const toggleAnimationBtn = document.getElementById('toggle-animation');
@@ -104,8 +118,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         function updateCanvasSize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            if (!canvas) return;
+            
+            canvas.width = window.innerWidth || document.documentElement.clientWidth || 1200;
+            canvas.height = window.innerHeight || document.documentElement.clientHeight || 800;
             
             // Adjust particle count based on screen size
             config.particleCount = Math.min(Math.max(30, Math.floor(canvas.width * canvas.height / 10000)), 150);
@@ -164,6 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             draw() {
+                if (!ctx) return;
+                
                 const pulseSize = this.size * (1 + 0.2 * Math.sin(this.pulse));
                 const color = config.colors[colorScheme][this.colorIndex];
                 
@@ -175,14 +193,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Add glow effect
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, pulseSize * 2, 0, Math.PI * 2);
-                const gradient = ctx.createRadialGradient(
-                    this.x, this.y, pulseSize,
-                    this.x, this.y, pulseSize * 2
-                );
-                gradient.addColorStop(0, color.replace(')', ', 0.3)').replace('rgb', 'rgba'));
-                gradient.addColorStop(1, color.replace(')', ', 0)').replace('rgb', 'rgba'));
-                ctx.fillStyle = gradient;
-                ctx.fill();
+                
+                try {
+                    const gradient = ctx.createRadialGradient(
+                        this.x, this.y, pulseSize,
+                        this.x, this.y, pulseSize * 2
+                    );
+                    gradient.addColorStop(0, color.replace(')', ', 0.3)').replace('rgb', 'rgba'));
+                    gradient.addColorStop(1, color.replace(')', ', 0)').replace('rgb', 'rgba'));
+                    ctx.fillStyle = gradient;
+                    ctx.fill();
+                } catch (e) {
+                    // Fallback if gradient creation fails
+                    ctx.fillStyle = color.replace(')', ', 0.1)').replace('rgb', 'rgba');
+                    ctx.fill();
+                }
             }
         }
         
@@ -196,6 +221,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Draw connections between particles
         function drawConnections() {
+            if (!ctx) return;
+            
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dist = distance(particles[i].x, particles[i].y, particles[j].x, particles[j].y);
@@ -236,6 +263,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Main animation loop
         function animate(timestamp) {
+            if (!ctx || !canvas) {
+                cancelAnimationFrame(animationId);
+                return;
+            }
+            
             if (!lastTime) lastTime = timestamp;
             const delta = timestamp - lastTime;
             lastTime = timestamp;
@@ -270,16 +302,18 @@ document.addEventListener('DOMContentLoaded', function() {
             glitchTimeout = setTimeout(createGlitch, config.glitchInterval);
             
             // Listen for mouse movement
-            canvas.addEventListener('mousemove', function(e) {
-                mousePosition.x = e.clientX;
-                mousePosition.y = e.clientY;
-            });
-            
-            // Listen for mouse leave
-            canvas.addEventListener('mouseleave', function() {
-                mousePosition.x = null;
-                mousePosition.y = null;
-            });
+            if (canvas) {
+                canvas.addEventListener('mousemove', function(e) {
+                    mousePosition.x = e.clientX;
+                    mousePosition.y = e.clientY;
+                });
+                
+                // Listen for mouse leave
+                canvas.addEventListener('mouseleave', function() {
+                    mousePosition.x = null;
+                    mousePosition.y = null;
+                });
+            }
             
             // Listen for window resize
             window.addEventListener('resize', updateCanvasSize);
@@ -324,7 +358,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // Start when DOM is loaded
-        init();
-    })();
+        // Start initialization
+        try {
+            init();
+        } catch (error) {
+            console.error("Error initializing canvas animation:", error);
+        }
+    };
+    
+    // Try to initialize the canvas
+    try {
+        initCanvas();
+    } catch (error) {
+        console.error("Error in canvas initialization:", error);
+    }
 });
