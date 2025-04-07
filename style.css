@@ -126,65 +126,69 @@ body {
 
 /* Mobile menu styles */
 @media (max-width: 768px) {
+    /* Hide desktop navigation */
     .g4t9w1 {
-        background-color: #000;
-
+      display: none;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background-color: #000;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      transition: right 0.3s ease;
+      z-index: 100;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      margin: 0;
     }
-
-    .h7j3y6 {
-        display: block;
-        z-index: 101;
-    }
-
-    /* Add this new rule in the mobile media query */
-    .g4t9w1 li a {
-        font-size: 1.2rem;
-        padding: 10px 0;
-        display: block;
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .g4t9w1 {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: rgba(34, 34, 34, 0.95);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        transition: right 0.3s ease;
-        z-index: 100;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-        padding: 20px;
-    }
-
+  
+    /* Show only when active */
     .g4t9w1.active {
-        right: 0;
+      display: flex;
+      right: 0;
     }
-
+  
+    /* Show hamburger menu */
+    .h7j3y6 {
+      display: block;
+      z-index: 101;
+    }
+  
+    /* Menu item styles */
+    .g4t9w1 li a {
+      font-size: 1.2rem;
+      padding: 10px 0;
+      display: block;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  
+    /* Hamburger animation */
     .h7j3y6.active .b1n4c8:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+      transform: translateY(8px) rotate(45deg);
     }
-
     .h7j3y6.active .b1n4c8:nth-child(2) {
-        opacity: 0;
+      opacity: 0;
     }
-
     .h7j3y6.active .b1n4c8:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+      transform: translateY(-8px) rotate(-45deg);
     }
-}
-
-/* Add this to make the X stand out when menu is open */
-.h7j3y6.active .b1n4c8 {
-    background-color: #00d9b2;
   }
 
+/* Desktop styles */
+@media (min-width: 769px) {
+    .g4t9w1 {
+        display: flex !important; /* Force show in desktop */
+    }
+    .h7j3y6 {
+        display: none !important; /* Hide hamburger in desktop */
+    }
+}
 /* ===== NEURAL NETWORK BACKGROUND ===== */
 #canvas {
     position: fixed;
@@ -546,13 +550,6 @@ footer {
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
-    header {
-        width: 100%;
-    }
-
-    nav {
-        width: 100vw;
-    }
 
     .merged-container {
         flex-direction: column;

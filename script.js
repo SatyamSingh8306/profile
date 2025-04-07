@@ -374,14 +374,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Add this script to handle mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
     const menuButton = document.querySelector('.h7j3y6');
     const mobileMenu = document.querySelector('.g4t9w1');
     
+    // Ensure menu is closed by default on mobile
+    if (window.innerWidth <= 768) {
+      mobileMenu.classList.remove('active');
+      menuButton.classList.remove('active');
+    }
+    
     menuButton.addEventListener('click', function() {
       this.classList.toggle('active');
       mobileMenu.classList.toggle('active');
+      
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = this.classList.contains('active') ? 'hidden' : '';
     });
     
     // Close menu when clicking on a link
@@ -390,6 +398,16 @@ document.addEventListener('DOMContentLoaded', function() {
       link.addEventListener('click', function() {
         menuButton.classList.remove('active');
         mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
       });
+    });
+    
+    // Close menu when resizing to desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        mobileMenu.classList.remove('active');
+        menuButton.classList.remove('active');
+        document.body.style.overflow = '';
+      }
     });
   });
