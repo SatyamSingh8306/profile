@@ -373,3 +373,23 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error("Error in canvas initialization:", error);
     }
 });
+
+// Add this script to handle mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const menuButton = document.querySelector('.h7j3y6');
+    const mobileMenu = document.querySelector('.g4t9w1');
+    
+    menuButton.addEventListener('click', function() {
+      this.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    const menuLinks = document.querySelectorAll('.g4t9w1 a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        menuButton.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      });
+    });
+  });

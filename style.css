@@ -44,35 +44,146 @@ body {
 }
 
 /* ===== HEADER & NAVIGATION ===== */
-header {
-    background-color: rgba(34, 34, 34, 0.7);
-    padding: 20px 0;
+/* Base styles */
+.nv8f5k2 {
+    background-color: black;
+    border-radius: 10px;
+    border: 2px solid aqua;
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 100;
+    padding: 15px 0;
 }
 
-nav ul {
+.m3p9q7 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
-    justify-content: center;
-    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav ul li {
-    margin: 0 20px;
+.r2d4s6 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-nav ul li a {
+.p9k3m1 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00d9b2;
+}
+
+.s5f2v8 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Desktop navigation */
+.g4t9w1 {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
+}
+
+.g4t9w1 li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
+    font-size: 1rem;
 }
 
-nav ul li a:hover {
+.g4t9w1 li a:hover {
     color: #00d9b2;
 }
+
+/* Mobile menu button */
+.h7j3y6 {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.b1n4c8 {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+    .g4t9w1 {
+        background-color: #000;
+
+    }
+
+    .h7j3y6 {
+        display: block;
+        z-index: 101;
+    }
+
+    /* Add this new rule in the mobile media query */
+    .g4t9w1 li a {
+        font-size: 1.2rem;
+        padding: 10px 0;
+        display: block;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .g4t9w1 {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: rgba(34, 34, 34, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: right 0.3s ease;
+        z-index: 100;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+    }
+
+    .g4t9w1.active {
+        right: 0;
+    }
+
+    .h7j3y6.active .b1n4c8:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .h7j3y6.active .b1n4c8:nth-child(2) {
+        opacity: 0;
+    }
+
+    .h7j3y6.active .b1n4c8:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Add this to make the X stand out when menu is open */
+.h7j3y6.active .b1n4c8 {
+    background-color: #00d9b2;
+  }
 
 /* ===== NEURAL NETWORK BACKGROUND ===== */
 #canvas {
@@ -98,7 +209,8 @@ nav ul li a:hover {
     z-index: 10;
 }
 
-#ui-container button, #ui-container select {
+#ui-container button,
+#ui-container select {
     padding: 8px 12px;
     background-color: rgba(64, 80, 170, 0.2);
     border: 1px solid rgba(100, 149, 237, 0.5);
@@ -109,7 +221,8 @@ nav ul li a:hover {
     transition: all 0.3s ease;
 }
 
-#ui-container button:hover, #ui-container select:hover {
+#ui-container button:hover,
+#ui-container select:hover {
     background-color: rgba(64, 80, 170, 0.4);
 }
 
@@ -121,16 +234,17 @@ nav ul li a:hover {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: rgba(65, 53, 53, 0.6);
-    border-radius: 8px;
+    /* background-color: rgba(65, 53, 53, 0.6); */
+    /* border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px); */
 }
 
 #about {
     flex: 1;
-    background-color: rgba(244, 244, 244, 0.1);
+    background-color: black;
     padding: 20px;
+    border: 4px solid aqua;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(5px);
@@ -165,11 +279,12 @@ nav ul li a:hover {
 /* ===== SUMMARY SECTION ===== */
 #summary {
     flex: 2;
-    background-color: rgba(224, 224, 224, 0.1);
+    background-color: black;
     padding: 20px;
+    border: 3px solid aqua;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(5px);
+    /* box-shadow: 0 2px 4px aqua; */
+    /* backdrop-filter: blur(5px); */
 }
 
 #summary h2 {
@@ -206,7 +321,7 @@ nav ul li a:hover {
 }
 
 .skill-item {
-    background-color: rgba(68, 68, 68, 0.3);
+    background-color: black;
     margin: 10px;
     padding: 20px;
     border-radius: 5px;
@@ -234,7 +349,8 @@ nav ul li a:hover {
 }
 
 /* Skill icon colors */
-.fab, .fas {
+.fab,
+.fas {
     color: inherit;
 }
 
@@ -289,7 +405,7 @@ nav ul li a:hover {
 }
 
 .project-card {
-    background: linear-gradient(145deg, rgba(68, 68, 68, 0.3), rgba(51, 51, 51, 0.3));
+    background: linear-gradient(145deg, black, rgba(51, 51, 51, 0.3));
     margin: 20px;
     padding: 20px;
     border-radius: 5px;
@@ -353,7 +469,7 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     padding: 12px 20px;
-    background: linear-gradient(145deg, rgba(68, 68, 68, 0.3), rgba(51, 51, 51, 0.3));
+    background: linear-gradient(145deg, black, rgba(51, 51, 51, 0.3));
     color: #a9c2d9;
     text-decoration: none;
     border-radius: 5px;
@@ -423,35 +539,46 @@ nav ul li a:hover {
 footer {
     padding: 20px;
     text-align: center;
-    background-color: rgba(34, 34, 34, 0.7);
+    background-color: black;
+    border-radius: 10px;
+    border: 1px solid aqua;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
+    header {
+        width: 100%;
+    }
+
+    nav {
+        width: 100vw;
+    }
+
     .merged-container {
         flex-direction: column;
     }
-    
+
     .social-links {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .social-link {
         width: 80%;
         justify-content: center;
     }
-    
+
     #contact {
         padding: 30px 20px;
     }
-    
+
     .project-card,
     .skill-item {
         width: 100%;
         max-width: 300px;
     }
 }
+
 #scroll-to-top {
     position: fixed;
     bottom: 30px;
@@ -472,22 +599,22 @@ footer {
     transform: translateY(20px);
     transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
     z-index: 1000;
-  }
-  
-  #scroll-to-top:hover {
+}
+
+#scroll-to-top:hover {
     background-color: rgba(59, 229, 241, 0.9);
     transform: translateY(0) scale(1.05);
-  }
-  
-  #scroll-to-top:active {
+}
+
+#scroll-to-top:active {
     transform: translateY(2px);
-  }
-  
-  #scroll-to-top.visible {
+}
+
+#scroll-to-top.visible {
     opacity: 1;
     transform: translateY(0);
-  }
-  
-  #scroll-to-top i {
+}
+
+#scroll-to-top i {
     color: white;
-  }
+}
