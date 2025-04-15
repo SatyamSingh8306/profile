@@ -339,7 +339,7 @@ h2 {
 
 /* Skill Category Box Styling */
 .skill-category {
-  background-color: rgb(0, 0, 0);
+  background-color: black;
   border: 2px solid #64d5ff;
   border-radius: 10px;
   padding: 20px;
@@ -363,28 +363,30 @@ h2 {
 
 /* Skill List Styling */
 .skill-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px; /* Space between items */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
 .skill-item {
-  background-color: black;
-  margin: 10px;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 1.2rem;
-  border: 2px solid #64d5ff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-  backdrop-filter: blur(5px);
-  /* Adjust width dynamically based on content */
-  flex: 1 1 auto; /* Allow items to grow and shrink */
-  min-width: 150px; /* Minimum width for short skill names */
-  max-width: 250px; /* Maximum width for long skill names */
-}
+    background: linear-gradient(145deg, #0a1525, #162040);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.1rem;
+    border: none;
+    box-shadow: 0 0 8px rgba(59, 229, 241, 0.3);
+    /* Use flex-basis for width control */
+    flex: 0 0 calc(25% - 15px); /* 4 items per row with gap considered */
+    max-width: calc(25% - 15px);
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
 .skill-item:hover {
   transform: scale(1.05);
@@ -393,14 +395,45 @@ h2 {
 }
 
 .skill-item i {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  display: block;
-  color: #64d5ff;
-  transition: transform 0.3s ease, filter 0.3s ease;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: #64d5ff;
+}
+/* Section containers */
+.skill-category, #about, #summary, .project-card, .social-links a{
+    background: linear-gradient(145deg, #0a1525, #162040);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(59, 229, 241, 0.4);
+    backdrop-filter: blur(10px);
 }
 
+/* Skill items - more compact */
+.skill-item {
+    background: linear-gradient(145deg, #0a1525, #162040);
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 0 8px rgba(59, 229, 241, 0.3);
+    min-width: 120px;
+    max-width: 200px;
+}
+
+/* Navigation bar */
+.nv8f5k2 {
+    background: linear-gradient(145deg, #0a1525cc, #162040cc);
+    border: none;
+    box-shadow: 0 0 20px rgba(59, 229, 241, 0.4);
+}
 /* Responsive Design */
+
+@media (max-width: 992px) {
+    .skill-item {
+      flex: 0 0 calc(33.333% - 15px); /* 3 items per row */
+      max-width: calc(33.333% - 15px);
+    }
+}
+
 @media (max-width: 768px) {
   .skill-item {
     padding: 15px; /* Reduce padding for a compact look */
@@ -505,6 +538,44 @@ h2 {
     font-size: 1rem;
     line-height: 1.6;
     color: #a9c2d9;
+}
+.project-content {
+    flex: 1;
+    margin-bottom: 25px;
+}
+.skill-item {
+    background: linear-gradient(145deg, #0a1525, #162040);
+    padding: 15px;
+    border: none;
+    box-shadow: 0 0 8px rgba(59, 229, 241, 0.3);
+    min-width: 120px;
+    max-width: 200px;
+}
+
+.project-card .btn {
+    align-self: center;
+    margin-top: auto;
+    background: linear-gradient(145deg, #3be5f1, #2b7bd0);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(59, 229, 241, 0.3);
+}
+
+
+.skill-category, #about, #summary, .project-card {
+    background: linear-gradient(145deg, #0a1525, #162040);
+    border: none;
+    box-shadow: 0 0 15px rgba(59, 229, 241, 0.4);
+}
+
+/* Navigation bar */
+.nv8f5k2 {
+    background: linear-gradient(145deg, #0a1525cc, #162040cc);
+    border: none;
+    box-shadow: 0 0 15px rgba(59, 229, 241, 0.4);
 }
 
 /* ===== CONTACT SECTION ===== */
