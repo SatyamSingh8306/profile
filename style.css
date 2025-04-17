@@ -436,8 +436,8 @@ h2 {
 
 @media (max-width: 768px) {
   .skill-item {
-    padding: 15px; /* Reduce padding for a compact look */
-    font-size: 1rem; /* Adjust font size for smaller screens */
+    padding: 15px; 
+    font-size: 1rem; 
   }
 
   .skill-item i {
@@ -446,15 +446,53 @@ h2 {
 }
 
 @media (max-width: 480px) {
-  .skill-item {
-    flex: 1 1 auto; /* Allow items to fit side-by-side if they fit */
-    min-width: 50px; /* Smaller minimum width for short skill names */
-    max-width: 150px; /* Limit maximum width for long skill names */
-    margin: 10px auto; /* Center align items */
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
+      gap: 5px;
+      width: 100%;
+    }
+    
+    .skill-item {
+      width: 100%; 
+      min-width: 0; 
+      font-size: 0.75rem; 
+      padding: 8px 5px; 
+      margin: 0; 
+      text-align: center;
+    }
   }
-}
+  
+  
+  @media (max-width: 375px) {
+    .skill-list {
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 4px; 
+    }
+    
+    .skill-item {
+      font-size: 0.65rem; 
+      padding: 6px 3px;
+    }
+    
+    
+    .skill-item i {
+      display: none;
+    }
+  }
+  
+  
+  @media (max-width: 320px) {
+    .skill-list {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+    
+    .skill-item {
+      font-size: 0.7rem; 
+    }
+  }
 
-/* Skill icon colors */
+
 .fab,
 .fas {
     color: inherit;
