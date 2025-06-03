@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let animationId;
         let particles = [];
         let mousePosition = { x: null, y: null };
-        let colorScheme = 'blue';
+        let colorScheme = 'multi';
         let lastTime = 0;
         let glitchTimeout;
         
@@ -355,6 +355,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         particle.colorIndex = Math.floor(random(0, config.colors[colorScheme].length));
                     });
                 });
+                
+                // Set the select element to multi by default
+                colorSchemeSelect.value = 'multi';
             }
         }
         
