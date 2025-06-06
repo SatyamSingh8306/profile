@@ -11,6 +11,8 @@ body {
     color: #fff;
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 .btn {
@@ -35,11 +37,11 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 0 15px;
+    box-sizing: border-box;
 }
 
 /* ===== HEADER & NAVIGATION ===== */
@@ -1438,4 +1440,57 @@ footer p::after {
 
 #scroll-to-top i {
     color: white;
+}
+
+/* Add responsive styles for merged container */
+@media (max-width: 700px) {
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .container {
+        padding: 0 10px;
+        width: 100%;
+    }
+
+    .merged-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #about, #summary {
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .nv8f5k2 {
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .m3p9q7 {
+        padding: 0 10px;
+    }
+
+    .project-card {
+        width: 100%;
+        margin: 10px 0;
+        box-sizing: border-box;
+    }
+
+    .skill-category {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .experience-item {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
